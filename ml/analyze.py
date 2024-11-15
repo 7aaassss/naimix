@@ -1,16 +1,21 @@
+import os
 from openai import OpenAI
+from preproc import Preprocessor
+
+api_key = os.environ.get("HF_API_KEY")
+
+if api_key is None:
+    raise ValueError("API key not found in environment variables.")
 
 client = OpenAI(
     base_url="https://api-inference.huggingface.co/v1/",
-    api_key="secret"
+    api_key=api_key  
 )
-
 
 def get_llm_answer(system_prompt, mes, client=client):
     messages = [
-        {"role": "system", "content": system_prompt,
-            
-        "role": "user", "content": mes}
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": mes}
     ]
     
     completion = client.chat.completions.create(
@@ -22,7 +27,5 @@ def get_llm_answer(system_prompt, mes, client=client):
     
     return completion.choices[0].message.content
 
-def preproc_info(text):
-    return str(get_llm_answer)
-    
-res = get_llm_answer
+
+
