@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="uploadForm" action="{{ url_for('getdata') }}" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <input type="date" name="date">
+    <br>
+    <input type="text" name="name">
+    <br>
+    <input type="City" name="city">
+    <br>
+    <button type="submit" class="button">Продолжить</button>
+</form>
+</body>
+</html>
