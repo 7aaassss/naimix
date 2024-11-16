@@ -1,25 +1,31 @@
 import requests
 
-url = "https://api.vedicastroapi.com/v3-json/dashas/maha-dasha-predictions"
 
-def predict():
+
+def predict(dob, lat, lon, tz):
+    url = "https://api.vedicastroapi.com/v3-json/dashas/maha-dasha-predictions"
+    dob_parts = dob.split("-")
+    dob_reformatted = "/".join(dob_parts[::-1])
+
     params = {
-        "dob": "24/11/2004",      # Дата рождения
-        "tob": "5:00",            # Время рождения
-        "lat": "61.7620",          # Широта Петрозаводска
-        "lon": "34.3490",          # Долгота Петрозаводска
-        "tz": "3",                 # Часовой пояс (UTC+3)
-        "api_key": "cd30f913-9c2a-5da0-93ed-c33b5c777d0b",
-        "lang": "en"               # Язык ответа
+        "dob": dob_reformatted,
+        "tob": "12:00",
+        "lat": lat,
+        "lon": lon,
+        "tz": tz,
+        "api_key": "8663e1a4-5e18-51a8-8e03-33aee6a34ffe",
+        "lang": "en"
     }
     response = requests.get(url, params=params)
     if response.status_code == 200:
-        return(response.json())
+        data = response.json()
+        dashas = data["response"]["dashas"]
+        plan = []
+        pred = []
+        for dasha in dashas:
+            pred.append(dasha['prediction'])
+            plan.append(dasha['planet_in_zodiac'])
+        return pred, plan
     else:
-        return(f"Ошибка: {response.status_code}")
-
-
-
-
-
+        return "Некорректный ответ от API.", None
 

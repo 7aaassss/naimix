@@ -5,13 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<form id="uploadForm" action="{{ url_for('getdata') }}" method="post" enctype="multipart/form-data">
+<form id="uploadForm" action="{{ url_for('date') }}" method="post" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
     <input type="date" name="date">
     <br>
     <input type="text" name="name">
     <br>
-    <input type="City" name="city">
+    <input type="text" name="city">
     <br>
     <button type="submit" class="button">Продолжить</button>
 </form>
