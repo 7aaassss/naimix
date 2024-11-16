@@ -5,7 +5,7 @@ from app import app
 from app.forms import manForm
 from app.city import get_coordinates
 from app.lol import predict
-
+from app.ml.analyze import predict_svm
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/index", methods=["GET", "POST"])

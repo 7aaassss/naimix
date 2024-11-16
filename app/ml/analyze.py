@@ -57,7 +57,7 @@ def get_proccessed_data(file_path_1, file_path_2):
 
     return result1, result2
 
-def main(file_path_1, file_path_2, fp_grade, sp_grade):
+def predict_svm(file_path_1, file_path_2, fp_grade, sp_grade):
     """
     Основная функция для обработки данных и вызова LLM.
     """
@@ -81,4 +81,4 @@ file_path_2 = ".//base2.txt"
 fp_grade = "Software Engineer"
 sp_grade = "Project Manager"
 
-print(main(file_path_1, file_path_2, fp_grade, sp_grade))
+print(predict_svm(file_path_1, file_path_2, fp_grade, sp_grade))
