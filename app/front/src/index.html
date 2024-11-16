@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+    @include('partials/header.html')
+      <div class="animated-bg">
+        <!-- Размещение звезд -->
+        <div class="stars" style="top: 10%; left: 20%;"></div>
+        <div class="stars" style="top: 20%; left: 40%;"></div>
+        <div class="stars" style="top: 50%; left: 70%;"></div>
+        <div class="stars" style="top: 80%; left: 10%;"></div>
+        <div class="stars" style="top: 30%; left: 90%;"></div>
+        <div class="stars" style="top: 60%; left: 50%;"></div>
+    </div>
+
+    <div class="form-container">
+        <h1>Cosmic Data Form</h1>
+        <form id="mainForm">
+            <label for="date">Date and Time:</label>
+            <input type="datetime-local" id="date" name="date" required>
+            
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            
+            <label for="team">Select Team:</label>
+            <select id="team" name="team" required>
+                <option value="" disabled selected>Select a team</option>
+            </select>
+            
+            <button type="submit">Submit</button>
+        </form>
+        
+        <h2>Response:</h2>
+        <pre id="response"></pre>
+    </div>
+    @include('partials/footer.html')
+    <!-- @include('html/h1.html') пример include -->
+</body>
+
+</html>
