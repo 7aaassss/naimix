@@ -7,7 +7,7 @@
 <body>
 <form id="uploadForm" action="{{ url_for('date') }}" method="post" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
-    <input type="date" name="date">
+    <input type="datetime-local" name="date">
     <br>
     <input type="text" name="name">
     <br>

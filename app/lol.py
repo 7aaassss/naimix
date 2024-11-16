@@ -2,14 +2,14 @@ import requests
 
 
 
-def predict(dob, lat, lon, tz):
+def predict(dob, lat, lon, tz, timee):
     url = "https://api.vedicastroapi.com/v3-json/dashas/maha-dasha-predictions"
     dob_parts = dob.split("-")
     dob_reformatted = "/".join(dob_parts[::-1])
 
     params = {
         "dob": dob_reformatted,
-        "tob": "12:00",
+        "tob": timee,
         "lat": lat,
         "lon": lon,
         "tz": tz,
